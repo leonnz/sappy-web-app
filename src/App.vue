@@ -8,7 +8,6 @@
           <input 
             v-model="formData.household_size" 
             type="number" 
-            placeholder="Enter household size in square meters"
             class="text-input"
           />
         </div>
@@ -18,7 +17,6 @@
         <input 
           v-model="formData.household_garden_area" 
           type="number" 
-          placeholder="Enter garden area in square meters"
           class="text-input"
         />
       </div>
@@ -28,7 +26,6 @@
         <input 
           v-model="formData.number_bathrooms" 
           type="number" 
-          placeholder="Enter number of bathrooms"
           class="text-input"
         />
       </div>
