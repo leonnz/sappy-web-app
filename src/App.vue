@@ -232,9 +232,64 @@ export default {
       env_attitude_sensitivity: ''
     })
 
-    const runModel = () => {
+    const runModel = async () => {
       console.log('Running model with data:', formData.value)
-      // Add your model logic here
+      
+      // Transform form data to API format
+      const apiPayload = {
+        additionalProp1: {
+          household_size: parseInt(formData.value.household_size) || 0,
+          household_garden_area: parseInt(formData.value.household_garden_area) || 0,
+          household_pool: formData.value.household_pool ? 1 : 0,
+          household_garden: formData.value.household_garden ? 1 : 0,
+          number_bathrooms: parseInt(formData.value.number_bathrooms) || 0,
+          irrigation_system: formData.value.irrigation_system ? 1 : 0,
+          house_plants: formData.value.house_plants ? 1 : 0,
+          balcony_plants: formData.value.balcony_plants ? 1 : 0,
+          Bathtub: formData.value.Bathtub ? 1 : 0,
+          Dishwasher: formData.value.Dishwasher ? 1 : 0,
+          Shower: formData.value.Shower ? 1 : 0,
+          Sink: formData.value.Sink ? 1 : 0,
+          Toilet: formData.value.Toilet ? 1 : 0,
+          Tub_Shower: formData.value.TubShower ? 1 : 0,
+          Washing_Machine: formData.value.WashingMachine ? 1 : 0,
+          // Residency type - convert to separate boolean fields
+          residency_Flat: formData.value.residency === 'Flat' ? 1 : 0,
+          residency_Other: formData.value.residency === 'other' ? 1 : 0,
+          residency_Single_Family: formData.value.residency === 'Single family' ? 1 : 0,
+          // Environmental attitude - convert to separate boolean fields
+          env_attitude_High_sensitivity: formData.value.env_attitude_sensitivity === 'High' ? 1 : 0,
+          env_attitude_Low_sensitivity: formData.value.env_attitude_sensitivity === 'Low' ? 1 : 0,
+          env_attitude_Medium_sensitivity: formData.value.env_attitude_sensitivity === 'Medium' ? 1 : 0
+        }
+      }
+
+      try {
+        const smartMeterId = formData.value.smartMeterId || 'T284'
+        const apiUrl = `/api/inference/?smart_meter_id=${smartMeterId}`
+        
+        console.log('API URL:', apiUrl)
+        console.log('API Payload:', apiPayload)
+        
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(apiPayload)
+        })
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        
+        const result = await response.json()
+        console.log('API Response:', result)
+        
+      } catch (error) {
+        console.error('Error calling API:', error)
+      }
     }
 
     return {
