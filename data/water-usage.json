@@ -1,0 +1,20 @@
+{
+  "waterUsageData": [
+    {
+      "id": 1,
+      "date": "2025-10-14",
+      "time": "08:00:00",
+      "location": "Main Building",
+      "meterReading": 15432.5,
+      "usage": 245.8,
+      "unit": "gallons",
+      "flowRate": 12.3,
+      "pressure": 45.2,
+      "temperature": 68.5,
+      "category": "domestic",
+      "cost": 189.75,
+      "currency": "USD",
+      "notes": "Normal daily usage"
+    }
+  ]
+}
