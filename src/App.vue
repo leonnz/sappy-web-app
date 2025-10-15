@@ -4,6 +4,15 @@
     <div class="main-content">
       <div class="form-section">
         <div class="input-group">
+          <label>Smart Meter ID:</label>
+          <input 
+            v-model="formData.smartMeterId" 
+            type="text" 
+            class="text-input"
+          />
+        </div>
+
+        <div class="input-group">
           <label>Household Size (m²):</label>
           <input 
             v-model="formData.household_size" 
@@ -203,6 +212,7 @@ export default {
     const predictionStatus = ref('Normal Usage')
     
     const formData = ref({
+      smartMeterId: '',
       household_size: '',
       household_garden_area: '',
       household_pool: false,
