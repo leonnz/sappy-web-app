@@ -349,7 +349,7 @@ h1 {
   font-weight: 600;
   color: #2c3e50;
   font-size: 0.9rem;
-  min-width: 140px;
+  min-width: 260px;
   flex-shrink: 0;
 }
 
