@@ -225,28 +225,30 @@ export default {
   align-items: center;
   min-height: 100vh;
   font-family: 'Arial', sans-serif;
-  padding: 2rem;
+  padding: 1rem;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
 h1 {
   font-size: 2.5rem;
   color: #2c3e50;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 
 .form-section {
   background: white;
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
+  max-width: 700px;
   width: 100%;
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
 }
 
 .input-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .input-group label {
@@ -254,16 +256,18 @@ h1 {
   margin-bottom: 0.5rem;
   font-weight: 600;
   color: #2c3e50;
+  font-size: 0.9rem;
 }
 
 .text-input, .select-input {
   width: 100%;
-  padding: 12px 16px;
-  font-size: 1rem;
+  padding: 10px 14px;
+  font-size: 0.95rem;
   border: 2px solid #ddd;
   border-radius: 8px;
   outline: none;
   transition: border-color 0.3s ease;
+  box-sizing: border-box;
 }
 
 .text-input:focus, .select-input:focus {
@@ -273,9 +277,9 @@ h1 {
 
 .checkbox-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
   padding: 1rem;
   background: #f8f9fa;
   border-radius: 8px;
@@ -288,9 +292,10 @@ h1 {
 }
 
 .checkbox-input {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   accent-color: #667eea;
+  flex-shrink: 0;
 }
 
 .checkbox-group label {
@@ -298,12 +303,13 @@ h1 {
   font-weight: 500;
   color: #2c3e50;
   cursor: pointer;
+  font-size: 0.9rem;
 }
 
 .run-button {
   width: 100%;
-  padding: 16px 24px;
-  font-size: 1.1rem;
+  padding: 14px 24px;
+  font-size: 1rem;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border: none;
@@ -321,5 +327,26 @@ h1 {
 
 .run-button:active {
   transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0.5rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .form-section {
+    padding: 1rem;
+    max-height: calc(100vh - 150px);
+  }
+  
+  .checkbox-grid {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
 }
 </style>
