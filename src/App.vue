@@ -177,15 +177,16 @@
 
     <div class="result-section">
       <div class="result-content">
-        <h2>Water Usage Prediction</h2>
-        <div class="prediction-score">
+        <span class="water-emoji">💧💧💧</span>
+        <!-- <h2>Water Usage Prediction</h2> -->
+        <!-- <div class="prediction-score">
           <span class="score-value">{{ predictionScore }}</span>
           <span class="score-unit">L/day</span>
-        </div>
-        <div class="prediction-status">
+        </div> -->
+        <!-- <div class="prediction-status">
           <span class="status-label">Status:</span>
           <span class="status-value">{{ predictionStatus }}</span>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -302,6 +303,14 @@ h1 {
 }
 
 .score-value {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #667eea;
+  display: block;
+  line-height: 1;
+}
+
+.water-emoji {
   font-size: 3.5rem;
   font-weight: bold;
   color: #667eea;
