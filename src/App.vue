@@ -269,7 +269,7 @@ h1 {
 
 .form-section {
   flex: 1;
-  max-width: 60%;
+  max-width: 50%;
   background: white;
   padding: 1.5rem;
   border-radius: 16px;
@@ -279,7 +279,7 @@ h1 {
 
 .result-section {
   flex: 1;
-  max-width: 40%;
+  max-width: 50%;
   background: white;
   padding: 1.5rem;
   border-radius: 16px;
@@ -338,18 +338,23 @@ h1 {
 
 .input-group {
   margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .input-group label {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
   font-weight: 600;
   color: #2c3e50;
   font-size: 0.9rem;
+  min-width: 140px;
+  flex-shrink: 0;
 }
 
 .text-input, .select-input {
-  width: 100%;
+  flex: 1;
   padding: 10px 14px;
   font-size: 0.95rem;
   border: 2px solid #ddd;
