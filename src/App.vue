@@ -1,16 +1,17 @@
 <template>
   <div class="container">
     <h1>🪴Sappy ML model 🤖</h1>
-    <div class="form-section">
-      <div class="input-group">
-        <label>Household Size (m²):</label>
-        <input 
-          v-model="formData.household_size" 
-          type="number" 
-          placeholder="Enter household size in square meters"
-          class="text-input"
-        />
-      </div>
+    <div class="main-content">
+      <div class="form-section">
+        <div class="input-group">
+          <label>Household Size (m²):</label>
+          <input 
+            v-model="formData.household_size" 
+            type="number" 
+            placeholder="Enter household size in square meters"
+            class="text-input"
+          />
+        </div>
 
       <div class="input-group">
         <label>Garden Area (m²):</label>
@@ -176,6 +177,21 @@
 
       <button @click="runModel" class="run-button">Run</button>
     </div>
+
+    <div class="result-section">
+      <div class="result-content">
+        <h2>Water Usage Prediction</h2>
+        <div class="prediction-score">
+          <span class="score-value">{{ predictionScore }}</span>
+          <span class="score-unit">L/day</span>
+        </div>
+        <div class="prediction-status">
+          <span class="status-label">Status:</span>
+          <span class="status-value">{{ predictionStatus }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
   </div>
 </template>
 
@@ -185,6 +201,9 @@ import { ref } from 'vue'
 export default {
   name: 'App',
   setup() {
+    const predictionScore = ref(342.5)
+    const predictionStatus = ref('Normal Usage')
+    
     const formData = ref({
       household_size: '',
       household_garden_area: '',
@@ -212,6 +231,8 @@ export default {
 
     return {
       formData,
+      predictionScore,
+      predictionStatus,
       runModel
     }
   }
@@ -236,15 +257,79 @@ h1 {
   text-align: center;
 }
 
+.main-content {
+  display: flex;
+  gap: 1.5rem;
+  max-width: 1200px;
+  width: 100%;
+  max-height: calc(100vh - 200px);
+}
+
 .form-section {
+  flex: 0 0 60%;
   background: white;
   padding: 1.5rem;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  max-width: 700px;
-  width: 100%;
-  max-height: calc(100vh - 200px);
   overflow-y: auto;
+}
+
+.result-section {
+  flex: 0 0 40%;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.result-content {
+  text-align: center;
+  width: 100%;
+}
+
+.result-content h2 {
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.prediction-score {
+  margin-bottom: 1.5rem;
+}
+
+.score-value {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #667eea;
+  display: block;
+  line-height: 1;
+}
+
+.score-unit {
+  font-size: 1.2rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.prediction-status {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.status-label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-right: 0.5rem;
+}
+
+.status-value {
+  color: #667eea;
+  font-weight: 500;
 }
 
 .input-group {
@@ -277,7 +362,7 @@ h1 {
 
 .checkbox-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 0.8rem;
   margin-bottom: 1.5rem;
   padding: 1rem;
@@ -339,14 +424,27 @@ h1 {
     margin-bottom: 1rem;
   }
   
+  .main-content {
+    flex-direction: column;
+    gap: 1rem;
+    max-height: none;
+  }
+  
+  .form-section, .result-section {
+    flex: none;
+  }
+  
   .form-section {
     padding: 1rem;
-    max-height: calc(100vh - 150px);
   }
   
   .checkbox-grid {
     grid-template-columns: 1fr;
     gap: 0.6rem;
+  }
+  
+  .score-value {
+    font-size: 2.5rem;
   }
 }
 </style>
