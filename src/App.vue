@@ -246,7 +246,7 @@ export default {
   align-items: center;
   min-height: 100vh;
   font-family: 'Arial', sans-serif;
-  padding: 1rem;
+  padding: 1rem 2rem;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
@@ -263,23 +263,27 @@ h1 {
   max-width: 1200px;
   width: 100%;
   max-height: calc(100vh - 200px);
+  padding: 0;
+  justify-content: space-between;
 }
 
 .form-section {
-  flex: 0 0 60%;
+  flex: 1;
+  max-width: 60%;
   background: white;
   padding: 1.5rem;
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
   overflow-y: auto;
 }
 
 .result-section {
-  flex: 0 0 40%;
+  flex: 1;
+  max-width: 40%;
   background: white;
   padding: 1.5rem;
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
   display: flex;
   align-items: center;
   justify-content: center;
