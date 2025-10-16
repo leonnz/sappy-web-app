@@ -381,7 +381,7 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-  min-height: 95vh;
+  min-height: 100%;
   font-family: 'Arial', sans-serif;
   padding: 1rem 2rem;
   /* background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); */
@@ -615,7 +615,7 @@ h1 {
   width: 100%;
   padding: 14px 24px;
   font-size: 1rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #319BFE;
   color: white;
   border: none;
   border-radius: 8px;
