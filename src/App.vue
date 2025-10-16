@@ -46,7 +46,8 @@
             v-model="formData.smartMeterId" 
             type="text" 
             :class="['text-input', { 'error': smartMeterIdError }]"
-            @input="smartMeterIdError = false"
+            @input="handleSmartMeterIdInput"
+            placeholder="e.g. T349"
           />
         </div>
 
@@ -401,6 +402,15 @@ export default {
       predictionScore.value = null
     }
 
+    const handleSmartMeterIdInput = (event) => {
+      // Clear error state
+      smartMeterIdError.value = false
+      
+      // Convert input to uppercase
+      const uppercaseValue = event.target.value.toUpperCase()
+      formData.value.smartMeterId = uppercaseValue
+    }
+
     return {
       formData,
       predictionScore,
@@ -408,7 +418,8 @@ export default {
       isLoading,
       smartMeterIdError,
       runModel,
-      resetForm
+      resetForm,
+      handleSmartMeterIdInput
     }
   }
 }
