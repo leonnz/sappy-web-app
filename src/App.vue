@@ -233,7 +233,11 @@
         <div class="prediction-score">
           <span class="score-value">
             <span v-if="predictionScore !== null">{{ predictionScore }}</span>
-            <span v-else class="cursor-placeholder">_</span>
+            <span v-else class="cursor-loading">
+              <span class="cursor-dot cursor-1">_</span>
+              <span class="cursor-dot cursor-2">_</span>
+              <span class="cursor-dot cursor-3">_</span>
+            </span>
           </span>
         </div>
         <div>
@@ -472,13 +476,31 @@ h1 {
   font-weight: 500;
 }
 
-.cursor-placeholder {
-  animation: blink 1s infinite;
+.cursor-loading {
+  display: inline-flex;
+  gap: 0.1em;
 }
 
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+.cursor-dot {
+  animation: cursorSequence 1.5s infinite;
+  opacity: 0.3;
+}
+
+.cursor-1 {
+  animation-delay: 0s;
+}
+
+.cursor-2 {
+  animation-delay: 0.5s;
+}
+
+.cursor-3 {
+  animation-delay: 1s;
+}
+
+@keyframes cursorSequence {
+  0%, 66.67%, 100% { opacity: 0.3; }
+  33.33% { opacity: 1; }
 }
 
 .prediction-status {
