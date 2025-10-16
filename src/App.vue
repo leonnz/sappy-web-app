@@ -295,6 +295,9 @@ export default {
       // Clear error state if validation passes
       smartMeterIdError.value = false
       
+      // Reset prediction score to show cursor animation
+      predictionScore.value = null
+      
       isLoading.value = true
       console.log('Running model with data:', formData.value)
       
