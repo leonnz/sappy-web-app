@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   plugins: [vue()],
+  base: '/sappy/', // Set base path for GitHub Pages
   server: {
     headers: {
       'Cross-Origin-Embedder-Policy': 'require-corp',

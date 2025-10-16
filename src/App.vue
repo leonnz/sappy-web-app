@@ -337,7 +337,8 @@ export default {
 
       try {
         const smartMeterId = formData.value.smartMeterId
-        const apiUrl = `/api/inference/?smart_meter_id=${smartMeterId}`
+        // Use direct API URL for production deployment
+        const apiUrl = `https://az-api-iwn-hackathon-demo-b0exa5duacasdpc0.australiasoutheast-01.azurewebsites.net/inference/?smart_meter_id=${smartMeterId}`
         
         console.log('API URL:', apiUrl)
         console.log('API Payload:', apiPayload)
