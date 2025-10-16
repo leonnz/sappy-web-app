@@ -1,6 +1,43 @@
 <template>
   <div class="container">
-    <h1>🪴Sappy ML model 🤖</h1>
+    <div class="title-row">
+      <svg width="60" height="60" viewBox="0 0 60 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M47.4879 34.7823C43.4979 36.1536 43.0723 37.1992 43.362 39.2246C42.0631 36.0996 45.8565 25.4533 41.7769 22.7441" stroke="url(#paint0_linear_62_2137)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M21.1051 10.8464C29.4951 22.1213 34.2412 23.7406 43.3833 23.5967C36.5946 6.83694 31.655 4.41753 21.1051 10.8464Z" fill="url(#paint1_linear_62_2137)"/>
+        <path d="M46.8497 35.0158C57.0155 37.0754 60.6765 35.0169 66.2952 28.8418C54.7156 22.0024 50.5831 23.6474 46.8497 35.0158Z" fill="url(#paint2_linear_62_2137)"/>
+        <path d="M58.574 43.2617H22.3483C19.702 43.2617 17.785 45.7853 18.4948 48.3346L23.9095 67.7819C24.2769 69.1015 25.2982 70.1483 26.6163 70.5209C39.0899 74.0461 45.8632 73.5764 55.4703 70.5955C56.8134 70.1788 57.8164 69.0608 58.1222 67.6882L62.4783 48.1314C63.0349 45.6328 61.1338 43.2617 58.574 43.2617Z" fill="url(#paint3_linear_62_2137)"/>
+        <path d="M62.3041 36.6802C46.0075 38.3868 34.0637 38.2871 17.9849 36.7301C14.3859 36.3816 12.1153 40.5802 14.4325 43.356L17.0607 46.5044C17.7033 47.2743 18.612 47.7758 19.6068 47.9028C35.1874 49.8915 44.8345 49.8993 61.1795 47.9253C62.3315 47.7862 63.3649 47.1471 64.0093 46.1821L66.1561 42.9676C68.0632 40.1118 65.7195 36.3225 62.3041 36.6802Z" fill="url(#paint4_linear_62_2137)"/>
+        <circle cx="30.5179" cy="55.5419" r="2.11077" fill="black" stroke="black"/>
+        <circle cx="52.0567" cy="55.5419" r="2.11077" fill="black" stroke="black"/>
+        <path d="M37.6975 58.1523C37.6975 61.9323 44.2244 62.2023 44.2244 58.1523" stroke="black" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="0.815865" cy="0.815865" r="0.815865" transform="matrix(-1 0 0 1 30.5178 56.1943)" fill="#D9D9D9"/>
+        <circle cx="0.815865" cy="0.815865" r="0.815865" transform="matrix(-1 0 0 1 52.0566 56.1943)" fill="#D9D9D9"/>
+        <defs>
+          <linearGradient id="paint0_linear_62_2137" x1="42.1032" y1="31.7186" x2="42.1032" y2="39.2246" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#A2593F"/>
+            <stop offset="1" stop-color="#3C2117"/>
+          </linearGradient>
+          <linearGradient id="paint1_linear_62_2137" x1="35.1397" y1="9.37515" x2="29.1229" y2="19.8881" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#7ADD98"/>
+            <stop offset="1" stop-color="#427752"/>
+          </linearGradient>
+          <linearGradient id="paint2_linear_62_2137" x1="54.9261" y1="24.6889" x2="58.2141" y2="35.0447" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#92FFB3"/>
+            <stop offset="1" stop-color="#58996B"/>
+          </linearGradient>
+          <linearGradient id="paint3_linear_62_2137" x1="17.1346" y1="43.2617" x2="52.5306" y2="79.6431" gradientUnits="userSpaceOnUse">
+            <stop offset="0.0509383" stop-color="#B37400"/>
+            <stop offset="1" stop-color="#422920"/>
+          </linearGradient>
+          <linearGradient id="paint4_linear_62_2137" x1="8.07074" y1="35.6504" x2="17.4764" y2="64.6353" gradientUnits="userSpaceOnUse">
+            <stop offset="0.0509383" stop-color="#B37400"/>
+            <stop offset="1" stop-color="#422920"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <h1>Sappy ML model</h1>
+      <span class="robot-emoji">🤖</span>
+    </div>
     <div class="main-content">
       <div class="form-section">
         <div class="input-group">
@@ -327,8 +364,20 @@ export default {
 h1 {
   font-size: 2.5rem;
   color: #2c3e50;
-  margin-bottom: 1.5rem;
+  margin: 0;
   text-align: center;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.robot-emoji {
+  font-size: 2.5rem;
 }
 
 .main-content {
