@@ -36,7 +36,7 @@
         </defs>
       </svg>
       <h1>Sappy ML model</h1>
-      <span class="robot-emoji">🤖</span>
+      <span class="robot-emoji" :class="{ 'spinning': isLoading }">🤖</span>
     </div>
     <div class="main-content">
       <div class="form-section">
@@ -401,6 +401,16 @@ h1 {
 
 .robot-emoji {
   font-size: 2.5rem;
+  transition: transform 3s ease;
+}
+
+.robot-emoji.spinning {
+  animation: robotSpin 0.4s linear infinite;
+}
+
+@keyframes robotSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .main-content {
