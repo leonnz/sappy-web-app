@@ -306,10 +306,10 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 95vh;
   font-family: 'Arial', sans-serif;
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  /* background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); */
 }
 
 h1 {
