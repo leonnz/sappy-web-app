@@ -188,10 +188,10 @@
       <div class="result-content">
         <span class="water-emoji">💧💧💧</span>
         <!-- <h2>Water Usage Prediction</h2> -->
-        <!-- <div class="prediction-score">
+        <div class="prediction-score">
           <span class="score-value">{{ predictionScore }}</span>
           <span class="score-unit">L/day</span>
-        </div> -->
+        </div>
         <!-- <div class="prediction-status">
           <span class="status-label">Status:</span>
           <span class="status-value">{{ predictionStatus }}</span>
@@ -237,7 +237,7 @@ export default {
       
       // Transform form data to API format
       const apiPayload = {
-        additionalProp1: {
+        customer_data: {
           household_size: parseInt(formData.value.household_size) || 0,
           household_garden_area: parseInt(formData.value.household_garden_area) || 0,
           household_pool: formData.value.household_pool ? 1 : 0,
@@ -265,7 +265,7 @@ export default {
       }
 
       try {
-        const smartMeterId = formData.value.smartMeterId || 'T284'
+        const smartMeterId = formData.value.smartMeterId
         const apiUrl = `/api/inference/?smart_meter_id=${smartMeterId}`
         
         console.log('API URL:', apiUrl)
@@ -306,7 +306,6 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   min-height: 100vh;
   font-family: 'Arial', sans-serif;
   padding: 1rem 2rem;
@@ -332,7 +331,7 @@ h1 {
 
 .form-section {
   flex: 1;
-  max-width: 50%;
+  max-width: 70%;
   background: white;
   padding: 1.5rem;
   border-radius: 16px;
@@ -342,7 +341,7 @@ h1 {
 
 .result-section {
   flex: 1;
-  max-width: 50%;
+  max-width: 30%;
   background: white;
   padding: 1.5rem;
   border-radius: 16px;
