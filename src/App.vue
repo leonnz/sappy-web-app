@@ -219,9 +219,14 @@
         </div>
       </div>
 
-      <button @click="runModel" :disabled="isLoading" class="run-button">
-        {{ isLoading ? 'Thinking...' : 'Run' }}
-      </button>
+      <div class="button-row">
+        <button @click="resetForm" class="reset-button">
+          Reset
+        </button>
+        <button @click="runModel" :disabled="isLoading" class="run-button">
+          {{ isLoading ? 'Thinking...' : 'Run' }}
+        </button>
+      </div>
     </div>
 
     <div class="result-section">
@@ -365,13 +370,44 @@ export default {
       }
     }
 
+    const resetForm = () => {
+      // Reset all form data to initial values
+      formData.value = {
+        smartMeterId: '',
+        household_size: '',
+        household_garden_area: '',
+        household_pool: false,
+        household_garden: false,
+        number_bathrooms: '',
+        irrigation_system: false,
+        house_plants: false,
+        balcony_plants: false,
+        Bathtub: false,
+        Dishwasher: false,
+        Shower: false,
+        Sink: false,
+        Toilet: false,
+        TubShower: false,
+        WashingMachine: false,
+        residency: '',
+        env_attitude_sensitivity: ''
+      }
+      
+      // Clear any error states
+      smartMeterIdError.value = false
+      
+      // Reset prediction score to show cursor animation
+      predictionScore.value = null
+    }
+
     return {
       formData,
       predictionScore,
       predictionStatus,
       isLoading,
       smartMeterIdError,
-      runModel
+      runModel,
+      resetForm
     }
   }
 }
@@ -442,7 +478,8 @@ h1 {
   background: white;
   padding: 1.5rem;
   border-radius: 16px;
-  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #efefef; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -611,8 +648,33 @@ h1 {
   font-size: 0.9rem;
 }
 
+.button-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.reset-button {
+  flex: 1;
+  padding: 14px 24px;
+  font-size: 1rem;
+  background: #f8f9fa;
+  color: #2c3e50;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 600;
+}
+
+.reset-button:hover {
+  background: #e9ecef;
+  border-color: #adb5bd;
+  transform: translateY(-1px);
+}
+
 .run-button {
-  width: 100%;
+  flex: 1;
   padding: 14px 24px;
   font-size: 1rem;
   background: #319BFE;
@@ -622,7 +684,6 @@ h1 {
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   font-weight: 600;
-  margin-top: 1rem;
 }
 
 .run-button:hover {
