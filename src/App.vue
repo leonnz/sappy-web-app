@@ -45,7 +45,8 @@
           <input 
             v-model="formData.smartMeterId" 
             type="text" 
-            class="text-input"
+            :class="['text-input', { 'error': smartMeterIdError }]"
+            @input="smartMeterIdError = false"
           />
         </div>
 
@@ -250,6 +251,7 @@ export default {
     const predictionScore = ref(342.5)
     const predictionStatus = ref('Normal Usage')
     const isLoading = ref(false)
+    const smartMeterIdError = ref(false)
     
     const formData = ref({
       smartMeterId: '',
@@ -273,6 +275,15 @@ export default {
     })
 
     const runModel = async () => {
+      // Validate smart meter ID is provided
+      if (!formData.value.smartMeterId || formData.value.smartMeterId.trim() === '') {
+        smartMeterIdError.value = true
+        return
+      }
+      
+      // Clear error state if validation passes
+      smartMeterIdError.value = false
+      
       isLoading.value = true
       console.log('Running model with data:', formData.value)
       
@@ -345,6 +356,7 @@ export default {
       predictionScore,
       predictionStatus,
       isLoading,
+      smartMeterIdError,
       runModel
     }
   }
@@ -498,6 +510,11 @@ h1 {
 .text-input:focus, .select-input:focus {
   border-color: #667eea;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.text-input.error, .select-input.error {
+  border-color: #e53e3e;
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
 }
 
 .checkbox-grid {
