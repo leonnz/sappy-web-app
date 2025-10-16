@@ -287,6 +287,11 @@ export default {
         const result = await response.json()
         console.log('API Response:', result)
         
+        // Update predictionScore with the API response
+        if (result.status === 'ok' && result.prediction !== undefined) {
+          predictionScore.value = result.prediction
+        }
+        
       } catch (error) {
         console.error('Error calling API:', error)
       }
