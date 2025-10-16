@@ -3,7 +3,8 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   plugins: [vue()],
-  base: '/sappy/', // Set base path for GitHub Pages
+  // Remove base path for Vercel deployment - serves from root
+  // base: '/sappy/', // Only needed for GitHub Pages
   server: {
     headers: {
       'Cross-Origin-Embedder-Policy': 'require-corp',
