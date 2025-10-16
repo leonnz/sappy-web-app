@@ -35,7 +35,7 @@
           </linearGradient>
         </defs>
       </svg>
-      <h1>Sappy ML model</h1>
+      <h1>Sappy ML model interface</h1>
       <span class="robot-emoji" :class="{ 'spinning': isLoading }">🤖</span>
     </div>
     <div class="main-content">
