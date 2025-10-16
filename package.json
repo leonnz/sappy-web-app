@@ -11,12 +11,13 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@tensorflow/tfjs": "^4.17.0",
     "vue": "^3.4.21",
-    "@tensorflow/tfjs": "^4.17.0"
+    "vue-router": "^4.6.3"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
-    "vite": "^5.1.6",
-    "gh-pages": "^6.1.1"
+    "gh-pages": "^6.1.1",
+    "vite": "^5.1.6"
   }
 }
