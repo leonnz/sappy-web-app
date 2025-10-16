@@ -181,7 +181,9 @@
         </div>
       </div>
 
-      <button @click="runModel" class="run-button">Run</button>
+      <button @click="runModel" :disabled="isLoading" class="run-button">
+        {{ isLoading ? 'Thinking...' : 'Run' }}
+      </button>
     </div>
 
     <div class="result-section">
@@ -210,6 +212,7 @@ export default {
   setup() {
     const predictionScore = ref(342.5)
     const predictionStatus = ref('Normal Usage')
+    const isLoading = ref(false)
     
     const formData = ref({
       smartMeterId: '',
@@ -233,6 +236,7 @@ export default {
     })
 
     const runModel = async () => {
+      isLoading.value = true
       console.log('Running model with data:', formData.value)
       
       // Transform form data to API format
@@ -294,6 +298,8 @@ export default {
         
       } catch (error) {
         console.error('Error calling API:', error)
+      } finally {
+        isLoading.value = false
       }
     }
 
@@ -301,6 +307,7 @@ export default {
       formData,
       predictionScore,
       predictionStatus,
+      isLoading,
       runModel
     }
   }
