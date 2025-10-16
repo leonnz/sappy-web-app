@@ -226,10 +226,17 @@
 
     <div class="result-section">
       <div class="result-content">
-        <span class="water-emoji">💧💧💧</span>
+        <div class="emojis">
+          <span class="water-emoji">💧💧💧</span>
+        </div>
         <!-- <h2>Water Usage Prediction</h2> -->
         <div class="prediction-score">
-          <span class="score-value">{{ predictionScore }}</span>
+          <span class="score-value">
+            <span v-if="predictionScore !== null">{{ predictionScore }}</span>
+            <span v-else class="cursor-placeholder">_</span>
+          </span>
+        </div>
+        <div>
           <span class="score-unit">L/day</span>
         </div>
         <!-- <div class="prediction-status">
@@ -248,7 +255,7 @@ import { ref } from 'vue'
 export default {
   name: 'App',
   setup() {
-    const predictionScore = ref(342.5)
+    const predictionScore = ref(null)
     const predictionStatus = ref('Normal Usage')
     const isLoading = ref(false)
     const smartMeterIdError = ref(false)
@@ -447,6 +454,10 @@ h1 {
   line-height: 1;
 }
 
+.emojis {
+  margin-bottom: 1rem;
+}
+
 .water-emoji {
   font-size: 3.5rem;
   font-weight: bold;
@@ -459,6 +470,15 @@ h1 {
   font-size: 1.2rem;
   color: #666;
   font-weight: 500;
+}
+
+.cursor-placeholder {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
 .prediction-status {
